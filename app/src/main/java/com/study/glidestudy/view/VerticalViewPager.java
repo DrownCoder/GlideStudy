@@ -3,11 +3,9 @@ package com.study.glidestudy.view;
 import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.study.glidestudy.util.DensityUtils;
 
 /**
  * Uses a combination of a PageTransformer and swapping X & Y coordinates
@@ -40,28 +38,27 @@ public class VerticalViewPager extends ViewPager {
 
         @Override
         public void transformPage(View view, float position) {
-            if(position <= 0){
+            if (position <= 0) {
                 view.setAlpha(1);
-                view.setTranslationY((float) (-view.getHeight()*(1-Math.pow(0.9f,-position))));
+                view.setTranslationY((float) (-view.getHeight() * (1 - Math.pow(0.9f, -position))));
                 //设置缩放中点
                 view.setPivotX(view.getWidth() / 2f);
                 view.setPivotY(view.getHeight() / 2f);
                 //设置缩放的比例 此处设置两个相邻的卡片的缩放比率为0.9f
                 float Scale = (float) Math.pow(0.9f, -position);
-                if(Scale > 0.7f){
+                if (Scale > 0.7f) {
                     view.setScaleX(Scale);
                     view.setScaleY(Scale);
-                }else {
+                } else {
                     view.setAlpha(0);
                 }
-            }
-            else{//(0,++)
+            } else {//(0,++)
                 view.setPivotY(view.getHeight());
                 setCameraDistance(view);
                 view.setRotationX(180 * -position);
-                view.setAlpha(1-position);
+                view.setAlpha(1 - position);
             }
-            view.setTranslationX(view.getWidth()*-position);
+            view.setTranslationX(view.getWidth() * -position);
 
         }
     }

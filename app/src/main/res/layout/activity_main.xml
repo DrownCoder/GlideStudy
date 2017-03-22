@@ -88,9 +88,11 @@
         </RelativeLayout>
     </LinearLayout>
     <RelativeLayout
+        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/ll_indicator"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="match_parent"
         android:clipChildren="false"
         >
         <com.study.glidestudy.view.VerticalViewPager
@@ -98,5 +100,33 @@
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
             android:layout_height="200dp"/>
+        <ImageView
+            android:id="@+id/iv_collect_click"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:padding="5dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:src="@mipmap/collect"
+            android:layout_margin="20dp"
+            />
     </RelativeLayout>
+    <ImageView
+        android:id="@+id/iv_collect_add"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:padding="5dp"
+        android:src="@drawable/collect45rotate"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        />
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:padding="5dp"
+        android:src="@mipmap/add"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        />
 </RelativeLayout>
