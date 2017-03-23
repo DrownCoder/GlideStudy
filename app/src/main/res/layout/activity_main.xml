@@ -4,129 +4,143 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
-    >
+    android:background="@android:color/black">
+
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Memory"
         android:gravity="center"
-        android:textStyle="bold"
+        android:padding="5dp"
+        android:text="Memory"
         android:textColor="@android:color/white"
         android:textSize="20sp"
-        android:padding="5dp"
-        />
+        android:textStyle="bold" />
+
     <ImageView
         android:id="@+id/iv_title_more"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginRight="5dp"
-        android:src="@mipmap/title_more"
-        />
+        android:src="@mipmap/title_more" />
+
     <LinearLayout
         android:id="@+id/ll_indicator"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="3"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        >
+        android:orientation="horizontal"
+        android:weightSum="3">
+
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pictures"
-                android:textStyle="bold"
                 android:layout_centerInParent="true"
-                android:gravity="center"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
                 android:background="@drawable/indicator_selected"
-                />
+                android:gravity="center"
+                android:text="Pictures"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Favorites"
-                android:textStyle="bold"
-                android:textColor="@android:color/white"
                 android:layout_centerInParent="true"
                 android:gravity="center"
+                android:text="Favorites"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
-                />
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
                 android:text="Mine"
                 android:textColor="@android:color/white"
-                android:textStyle="bold"
-                android:layout_centerInParent="true"
-                android:gravity="center"
                 android:textSize="18sp"
-                />
+                android:textStyle="bold" />
         </RelativeLayout>
     </LinearLayout>
+
     <RelativeLayout
-        android:layout_marginBottom="20dp"
-        android:layout_below="@+id/ll_indicator"
-        android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipChildren="false"
-        >
+        android:layout_below="@+id/ll_indicator"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
+        android:clipChildren="false">
+
         <com.study.glidestudy.view.VerticalViewPager
-            android:layout_centerInParent="true"
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
-            android:layout_height="200dp"/>
+            android:layout_height="200dp"
+            android:layout_centerInParent="true" />
+
         <ImageView
             android:id="@+id/iv_collect_click"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:padding="5dp"
             android:layout_centerInParent="true"
-            android:visibility="gone"
-            android:src="@mipmap/collect"
             android:layout_margin="20dp"
-            />
+            android:padding="5dp"
+            android:src="@mipmap/collect"
+            android:visibility="gone" />
     </RelativeLayout>
+
     <ImageView
         android:id="@+id/iv_collect_add"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:padding="5dp"
-        android:src="@drawable/collect45rotate"
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
-        />
+        android:padding="5dp"
+        android:src="@drawable/collect45rotate" />
+
+    <TextView
+        android:layout_marginLeft="-30dp"
+        android:layout_marginBottom="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/iv_collect_add"
+        android:id="@+id/tv_collect_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:gravity="center"
+        android:text="+1"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="18sp"
+        android:visibility="gone"
+        android:textStyle="bold" />
+
     <ImageView
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:padding="5dp"
-        android:src="@mipmap/add"
-        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
         android:layout_margin="20dp"
-        />
+        android:padding="5dp"
+        android:src="@mipmap/add" />
 </RelativeLayout>

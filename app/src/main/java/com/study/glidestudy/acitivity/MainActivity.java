@@ -19,6 +19,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.study.glidestudy.R;
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView mImgClick;
     private ImageView mImgAdd;
+    private TextView mTvAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,12 +77,17 @@ public class MainActivity extends AppCompatActivity {
                         , R.anim.collect_click);
                 mImgClick.startAnimation(imgClickAnimation);
 
-                Animator bigAnimationX = ObjectAnimator.ofFloat(mImgAdd, "scaleX", 1.0f, 1.3f);
-                Animator bigAnimationY = ObjectAnimator.ofFloat(mImgAdd, "scaleY", 1.0f, 1.3f);
-                Animator smallAnimationX = ObjectAnimator.ofFloat(mImgAdd, "scaleX", 1.3f, 1.0f);
-                Animator smallAnimationY = ObjectAnimator.ofFloat(mImgAdd, "scaleY", 1.3f, 1.0f);
+                Animator bigAnimationX = ObjectAnimator.ofFloat(mImgAdd, "scaleX", 1.0f, 1.3f, 1.0f);
+                Animator bigAnimationY = ObjectAnimator.ofFloat(mImgAdd, "scaleY", 1.0f, 1.3f, 1.0f);
                 AnimatorSet set = new AnimatorSet();
-                set.play(bigAnimationX).with(bigAnimationY).before(smallAnimationX).with(smallAnimationY);
+                set.play(bigAnimationX).with(bigAnimationY);
+                set.start();
+
+                Animation tvClickAnimation = AnimationUtils.loadAnimation(MainActivity.this
+                        , R.anim.tv_collect_add);
+                mTvAdd.setVisibility(View.VISIBLE);
+                mTvAdd.startAnimation(tvClickAnimation);
+
             }
         });
     }
@@ -89,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (VerticalViewPager) findViewById(R.id.viewpager);
         mImgClick = (ImageView) findViewById(R.id.iv_collect_click);
         mImgAdd = (ImageView) findViewById(R.id.iv_collect_add);
+        mTvAdd = (TextView) findViewById(R.id.tv_collect_add);
     }
 
     private void initData() {
@@ -98,5 +106,6 @@ public class MainActivity extends AppCompatActivity {
 
         mViewPager.setAdapter(mAdapter);
         mViewPager.setOffscreenPageLimit(3);
+        mViewPager.setCurrentItem(mImgSource.length);
     }
 }
